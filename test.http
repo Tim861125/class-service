@@ -1,0 +1,29 @@
+
+### Create a new class
+POST http://localhost:3000/classes
+Content-Type: application/json
+
+{
+  "name": "Math",
+  "teacher": "Mr. Smith",
+  "date": "2025-07-01T10:00:00Z"
+}
+
+### Get all classes
+GET http://localhost:3000/classes
+
+### Get a class by ID
+GET http://localhost:3000/classes/1
+
+### Update a class by ID
+PUT http://localhost:3000/classes/1
+Content-Type: application/json
+
+{
+  "name": "Advanced Math",
+  "teacher": "Mr. Smith",
+  "date": "2025-07-01T10:00:00Z"
+}
+
+### Delete a class by ID
+DELETE http://localhost:3000/classes/1
