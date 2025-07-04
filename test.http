@@ -1,22 +1,22 @@
-
+@host = http://localhost:3000
 ### Create a new class
-POST http://localhost:3000/classes
+POST {{host}}/add-classes
 Content-Type: application/json
 
 {
-  "name": "Math",
-  "teacher": "Mr. Smith",
-  "date": "2025-07-01T10:00:00Z"
+  "name": "English",
+  "teacher": "Mr. pig",
+  "date": "2025-07-05T10:00:00Z"
 }
 
 ### Get all classes
-GET http://localhost:3000/classes
+GET {{host}}/get-all-classes
 
 ### Get a class by ID
-GET http://localhost:3000/classes/1
+GET {{host}}/get-class/1
 
 ### Update a class by ID
-PUT http://localhost:3000/classes/1
+PUT {{host}}/update-class/1
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ### Delete a class by ID
-DELETE http://localhost:3000/classes/1
+DELETE {{host}}/del-class/1

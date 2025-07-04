@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Create a new class
-app.post('/classes', async (req, res) => {
+app.post('/add-classes', async (req, res) => {
   const { name, teacher, date } = req.body;
   const newClass = await prisma.class.create({
     data: { name, teacher, date: new Date(date) },
@@ -17,13 +17,13 @@ app.post('/classes', async (req, res) => {
 });
 
 // Get all classes
-app.get('/classes', async (req, res) => {
+app.get('/get-all-classes', async (req, res) => {
   const classes = await prisma.class.findMany();
   res.json(classes);
 });
 
 // Get a class by ID
-app.get('/classes/:id', async (req, res) => {
+app.get('/get-class/:id', async (req, res) => {
   const { id } = req.params;
   const course = await prisma.class.findUnique({
     where: { id: Number(id) },
@@ -32,7 +32,7 @@ app.get('/classes/:id', async (req, res) => {
 });
 
 // Update a class by ID
-app.put('/classes/:id', async (req, res) => {
+app.put('/update-class/:id', async (req, res) => {
   const { id } = req.params;
   const { name, teacher, date } = req.body;
   const updatedClass = await prisma.class.update({
@@ -43,7 +43,7 @@ app.put('/classes/:id', async (req, res) => {
 });
 
 // Delete a class by ID
-app.delete('/classes/:id', async (req, res) => {
+app.delete('/del-class/:id', async (req, res) => {
   const { id } = req.params;
   await prisma.class.delete({
     where: { id: Number(id) },
